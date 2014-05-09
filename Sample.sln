@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportData", "ImportData\ImportData.csproj", "{C9FDEDF4-5AB2-4A09-842C-91ACC4484624}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILSample", "ILSample\ILSample.csproj", "{52331F77-F554-4FB3-8682-113EA51E4664}"
@@ -26,6 +26,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashtableToHtml", "HashtableToHtml\HashtableToHtml.csproj", "{122F4C21-67DC-49FB-AFD2-FE1CAD06F86F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSample", "WebSample\WebSample.csproj", "{556A2AA7-BFA8-40B7-8C3A-80BF01D336EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDataUseEF", "CreateDataUseEF\CreateDataUseEF.csproj", "{2F84DE87-2096-44E0-A46F-6EE92916C49F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF", "EF", "{90AB3C59-D435-4B3C-A56B-D3AEAFC312D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,8 +89,15 @@ Global
 		{556A2AA7-BFA8-40B7-8C3A-80BF01D336EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{556A2AA7-BFA8-40B7-8C3A-80BF01D336EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{556A2AA7-BFA8-40B7-8C3A-80BF01D336EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2F84DE87-2096-44E0-A46F-6EE92916C49F} = {90AB3C59-D435-4B3C-A56B-D3AEAFC312D3}
 	EndGlobalSection
 EndGlobal
