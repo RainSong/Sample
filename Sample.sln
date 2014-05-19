@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportData", "ImportData\ImportData.csproj", "{C9FDEDF4-5AB2-4A09-842C-91ACC4484624}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILSample", "ILSample\ILSample.csproj", "{52331F77-F554-4FB3-8682-113EA51E4664}"
@@ -30,6 +32,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDataUseEF", "CreateDataUseEF\CreateDataUseEF.csproj", "{2F84DE87-2096-44E0-A46F-6EE92916C49F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF", "EF", "{90AB3C59-D435-4B3C-A56B-D3AEAFC312D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JQueryEasyUI", "JQueryEasyUI\JQueryEasyUI.csproj", "{58C31EEF-8C73-4FA3-B835-75F611A2FD1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{89238754-E82C-4E9A-9B88-ABF111DF674D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportXLS", "ExportXLS\ExportXLS.csproj", "{0FC6D00A-7E1D-4CF9-89F3-EC736DCCE3D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +106,14 @@ Global
 		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F84DE87-2096-44E0-A46F-6EE92916C49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58C31EEF-8C73-4FA3-B835-75F611A2FD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58C31EEF-8C73-4FA3-B835-75F611A2FD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58C31EEF-8C73-4FA3-B835-75F611A2FD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58C31EEF-8C73-4FA3-B835-75F611A2FD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC6D00A-7E1D-4CF9-89F3-EC736DCCE3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC6D00A-7E1D-4CF9-89F3-EC736DCCE3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC6D00A-7E1D-4CF9-89F3-EC736DCCE3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC6D00A-7E1D-4CF9-89F3-EC736DCCE3D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

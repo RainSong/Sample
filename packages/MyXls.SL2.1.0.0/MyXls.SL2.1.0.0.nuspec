@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MyXls.SL2</id>
+    <version>1.0.0</version>
+    <authors>sourceforge</authors>
+    <owners>sourceforge</owners>
+    <projectUrl>http://sourceforge.net/projects/myxls/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Writes and now Reads Excel files quickly and easily, including formatting. Generate Excel files for ASP.NET sites or .NET applications.</description>
+  </metadata>
+</package>
