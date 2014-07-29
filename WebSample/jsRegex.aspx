@@ -16,7 +16,7 @@
             html = html.replace(/ id=\"datagrid(\-\w*\d*)+\"/g, "");
 
             html = html.replace(/ datagrid-row-index=\"\d+\"/g, "");
-            //#endregioin
+            //#endregion
             //#region 移除无用的样式引用
 
             html = html.replace(/datagrid-row-alt/g, "");
@@ -27,7 +27,7 @@
 
             html = html.replace(/height:( )*auto;/g, "");
             html = html.replace(/ class=\"( )*\"/g, "");
-            //#endregioin
+            //#endregion
 
             //#region 移除不显示的标签
             html = html.replace(/\Wtd style="display: none;"\W+div style=\"text-align:( )*center;\"\W+\w*\d*\W+div\W+td\W/g, "");
