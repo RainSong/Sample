@@ -10,58 +10,34 @@
     <script type="text/javascript" src="Scripts/jquery.easyui-1.3.6.js"></script>
     <link rel="stylesheet" type="text/css" href="Content/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="Content/themes/default/datagrid.css" />
-    <style type="text/css">
-        td div {
-            width: 100%;
-        }
-    </style>
+
 </head>
 <body>
-    <div id="divGridList1"></div>
-    <br />
-    <br />
-    <div id="divGridList2"></div>
-    <br />
-    <br />
+    <table id="gridList" style="margin: 5px; width: 100%;"></table>
 </body>
 <script type="text/javascript">
-    $('#divGridList1').datagrid({
-        columns: [
-                    [
-                        { field: "area", title: "地区", rowspan: 2, align: "center" },
-                        { field: "cn", title: "生产企业数量（个）", rowspan: 2, align: "center" },
-                        { field: "yp", title: "年设计生产能力（万立方米）", rowspan: 2, align: "center" },
-                        { field: "sjcl", title: "实际产量（立方米）", colspan: 2, align: "center" },
-                        { field: "syszsnl", title: "使用散装水泥量(吨)", colspan: 2, align: "center" },
-                        { field: "fqwzhlyl", title: "废弃物综合利用量(吨)", colspan: 2, align: "center" },
-                        { field: "remark", title: "备注", rowspan: 2, align: "center" }
-                    ],
-                    [
 
-                        { field: "by1", title: "本月1", align: "center" },
-                        { field: "lj1", title: "累计1", align: "center" },
-                        { field: "by2", title: "本月2", colspan: 1, align: "center" },
-                        { field: "lj2", title: "累计2", colspan: 1, align: "center" },
-                        { field: "by3", title: "本月3", colspan: 1, align: "center" },
-                        { field: "lj3", title: "累计3", colspan: 1, align: "center" }
-                    ]
-        ],
-        data: [
-            { area: "东北", cn: 85, yp: 5000000, sjcl: 123456789, syszsnl: 123456789, fqwzhlyl: 123456789, remark: "备注备注备注备注", by1: 5000, lj1: 10000, by2: 3000, lj2: 6000, by3: 15000, lj3: 30000 },
-            { area: "东北", cn: 85, yp: 5000000, sjcl: 123456789, syszsnl: 123456789, fqwzhlyl: 123456789, remark: "备注备注备注备注", by1: 5000, lj1: 10000, by2: 3000, lj2: 6000, by3: 15000, lj3: 30000 },
-            { area: "东北", cn: 85, yp: 5000000, sjcl: 123456789, syszsnl: 123456789, fqwzhlyl: 123456789, remark: "备注备注备注备注", by1: 5000, lj1: 10000, by2: 3000, lj2: 6000, by3: 15000, lj3: 30000 },
-        ]
-    });
-    $('#divGridList2').datagrid({
+    $('#gridList').datagrid({
         title: "预拌砂浆生产及废弃物综合利用情况统计月报表",
+        //nowrap: true, //单元格是否可以换行
+        striped: true, //行条纹
+        collapsible: true,
+        width: 'auto',
+        height: 'auto',
+        fit: true,
+        fitColumns: true, //是否调整列宽 
+        //remoteSort: false,
+        idField: "fj",
+        singleSelect: true,
+        loadMsg: '正在加载数据，请稍等……',
         columns: [
                     [
-                        { title: "地区", rowspan: 4, align: "center" },
+                        { title: "地区", rowspan: 4, align: "center"},
                         { title: "普通干混砂浆", colspan: 3, align: "center" },
-                        { title: "实际产量", colspan: 8, align: "center" },
+                        { title: "实际产量", colspan: 8, align: "center", width: 400 },
                         { title: "使用散装水泥量", colspan: 2, rowspan: 2, align: "center" },
                         { title: "废弃物利用量", colspan: 2, rowspan: 2, align: "center" },
-                        { title: "备注", rowspan: 4, align: "center" }
+                        { title: "备注", rowspan: 4, align: "center", width: 400 }
                     ],
                     [
                         { title: "生产企业数量（个）", rowspan: 3, align: "center" },
@@ -91,33 +67,33 @@
                             { title: "累计", align: "center" }
                     ],
                     [
-                        { field: "fj", title: "甲", align: "center", width: 150 },
+                        { field: "fj", title: "甲", align: "center" },
                         { field: "f1", title: "1", align: "center" },
-                        { field: "f2", title: "2", align: "center", width: 150 },
-                        { field: "f3", title: "3", align: "center", width: 150 },
-                        { field: "f4", title: "4", align: "center", width: 150 },
-                        { field: "f5", title: "5", align: "center", width: 150 },
-                        { field: "f6", title: "6", align: "center", width: 150 },
-                        { field: "f7", title: "7", align: "center", width: 150 },
-                        { field: "f8", title: "8", align: "center", width: 150 },
-                        { field: "f9", title: "9", align: "center", width: 150 },
-                        { field: "f10", title: "10", align: "center", width: 150 },
-                        { field: "f11", title: "11", align: "center", width: 150 },
-                        { field: "f12", title: "12", align: "center", width: 150 },
-                        { field: "f13", title: "13", align: "center", width: 150 },
-                        { field: "f14", title: "14", align: "center", width: 150 },
-                        { field: "f15", title: "15", align: "center", width: 150 },
-                        { field: "fy", title: "乙", align: "center", width: 150 }
+                        { field: "f2", title: "2", align: "center" },
+                        { field: "f3", title: "3", align: "center" },
+                        { field: "f4", title: "4", align: "center" },
+                        { field: "f5", title: "5", align: "center" },
+                        { field: "f6", title: "6", align: "center" },
+                        { field: "f7", title: "7", align: "center" },
+                        { field: "f8", title: "8", align: "center" },
+                        { field: "f9", title: "9", align: "center" },
+                        { field: "f10", title: "10", align: "center" },
+                        { field: "f11", title: "11", align: "center" },
+                        { field: "f12", title: "12", align: "center" },
+                        { field: "f13", title: "13", align: "center" },
+                        { field: "f14", title: "14", align: "center" },
+                        { field: "f15", title: "15", align: "center" },
+                        { field: "fy", title: "乙", align: "center" }
                     ]
-        ],
-        data: [
-            { fj: "J", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
-            { fj: "J", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
-            { fj: "J", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
-            { fj: "J", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
-            { fj: "J", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" }
         ]
     });
-    $("td div").css("width", "100%");
+    var data = [
+            { fj: "J1", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
+            { fj: "J2", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
+            { fj: "J3", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
+            { fj: "J4", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" },
+            { fj: "J5", f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6, f7: 7, f8: 8, f9: 9, f10: 10, f11: 11, f12: 12, f13: 13, f14: 14, f15: 15, fy: "Y" }
+    ];
+    $("#gridList").datagrid("loadData", data);
 </script>
 </html>

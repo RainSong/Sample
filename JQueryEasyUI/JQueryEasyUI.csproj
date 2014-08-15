@@ -322,10 +322,13 @@
     <Content Include="Content\themes\metro\tree.css" />
     <Content Include="Content\themes\metro\validatebox.css" />
     <Content Include="Content\themes\metro\window.css" />
+    <Content Include="ExportGrid.aspx" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="ReportDemoWithEasyUI.aspx" />
     <Content Include="Scripts\easyloader.js" />
+    <Content Include="Scripts\exprot.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.easyui-1.3.6.js" />
@@ -357,6 +360,13 @@
     <Content Include="Scripts\json1.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportGrid.aspx.cs">
+      <DependentUpon>ExportGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExportGrid.aspx.designer.cs">
+      <DependentUpon>ExportGrid.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDemoWithEasyUI.aspx.cs">
       <DependentUpon>ReportDemoWithEasyUI.aspx</DependentUpon>
