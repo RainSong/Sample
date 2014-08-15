@@ -24,7 +24,6 @@
             { sid: "s006", name: "孙八", bir: "2014-1-5", sex: "女" },
     ];
     var fields = ["name", "bir", "set"];
-    var sytles = [{ "td": "align:center;" }]
     var html = exportHelper.getExportHtml(data, fields);
     console.log(html);
 </script>

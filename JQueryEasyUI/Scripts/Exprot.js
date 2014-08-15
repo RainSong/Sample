@@ -69,12 +69,20 @@
         return c;
     }
 
-    exportHelper.getExportHtml = function (data, fields) {
+    exportHelper.getExportHtml = function (data, fields, mergeFields) {
+        
         var t = new table();
         if (data && fields && fields.length > 0) {
             for (var i = 0, j = data.length; i < j; i++) {
                 var r = new row();
                 for (var m = 0, n = fields.length; m < n; m++) {
+
+                    if (mergeFields && mergeFields.length > 0) {
+                        if (mergeFields.indexOf(fields[m]) > -1) {
+                                
+                        }
+                    }
+
                     var c = new cell();
                     c.value = data[i][fields[m]];
                     r.items.push(c);
