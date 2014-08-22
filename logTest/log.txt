@@ -1,0 +1,4 @@
+2012-07-26 16:48:16,054 [11] ERROR testLogger [(null)] - add a log -- level : Error
+2012-07-26 16:48:16,054 [11] ERROR testLogger [(null)] - add a log -- level : Error
+2012-07-26 16:48:16,181 [11] FATAL testLogger [(null)] - add a log -- level : Fatal
+2012-07-26 16:48:16,181 [11] FATAL testLogger [(null)] - add a log -- level : Fatal

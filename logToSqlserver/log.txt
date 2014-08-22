@@ -1,0 +1,37 @@
+
+时间：2012-01-30 14:39:17,945 
+线程ID：4 
+日志级别：INFO 
+位置：logToSqlserver.index.Button1_Click(F:\kuaipan\TEST\C#Test\log4netTest\logToSqlserver\index.aspx.cs:21) 
+                             
+----------------------------------------------
+时间：2012-01-30 14:39:17,945 
+线程ID：4 
+日志级别：INFO 
+位置：logToSqlserver.index.Button1_Click(F:\kuaipan\TEST\C#Test\log4netTest\logToSqlserver\index.aspx.cs:21) 
+                             
+----------------------------------------------
+时间：2012-01-30 14:40:01,375 
+线程ID：4 
+日志级别：INFO 
+位置：logToSqlserver.index.Button1_Click(F:\kuaipan\TEST\C#Test\log4netTest\logToSqlserver\index.aspx.cs:21) 
+                             
+----------------------------------------------
+时间：2012-01-30 14:40:01,375 
+线程ID：4 
+日志级别：INFO 
+位置：logToSqlserver.index.Button1_Click(F:\kuaipan\TEST\C#Test\log4netTest\logToSqlserver\index.aspx.cs:21) 
+                             
+----------------------------------------------
+时间：2012-07-25 11:05:44,154 
+线程ID：5 
+日志级别：INFO 
+位置：logToSqlserver.Global.Application_Start(E:\kuaipan\TEST\C#Test\log4netTest\logToSqlserver\Global.asax.cs:17) 
+                             
+----------------------------------------------
+时间：2012-07-25 11:05:44,154 
+线程ID：5 
+日志级别：INFO 
+位置：logToSqlserver.Global.Application_Start(E:\kuaipan\TEST\C#Test\log4netTest\logToSqlserver\Global.asax.cs:17) 
+                             
+----------------------------------------------

@@ -6,7 +6,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebSample
+namespace WebFormSample
 {
     public partial class WebForm2 : System.Web.UI.Page
     {

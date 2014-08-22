@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="jqGrid.aspx.cs" Inherits="WebSample.jqGrid" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="jqGrid.aspx.cs" Inherits="WebFormSample.jqGrid" %>
 
 <!DOCTYPE html>
 

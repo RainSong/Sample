@@ -12,7 +12,8 @@ namespace ExceptionSample
         {
             try
             {
-                ClassA.Foo3();
+                //ClassA.Foo3();
+                Class1.Foo2();
             }
             catch (Exception ex)
             {
@@ -20,13 +21,27 @@ namespace ExceptionSample
             }
             Console.ReadKey();
         }
-    }
 
+
+    }
+    internal class Class1
+    {
+        public static void Foo1()
+        {
+            var ex = new Exception("error in foo1");
+            ex.Data.Add("ErrorMsg", "msg append in foo1");
+            throw ex;
+        }
+        public static void Foo2()
+        {
+            Foo1();
+        }
+    }
     internal static class ClassA
     {
         private static void Foo1()
         {
-            
+
             throw new Exception("this excetion thorw at foo1");
 
         }

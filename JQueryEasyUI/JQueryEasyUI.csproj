@@ -40,7 +40,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.2.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -322,9 +335,13 @@
     <Content Include="Content\themes\metro\tree.css" />
     <Content Include="Content\themes\metro\validatebox.css" />
     <Content Include="Content\themes\metro\window.css" />
+    <Content Include="EasyUIGridEdit.aspx" />
     <Content Include="ExportGrid.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="HtmlPage1.html" />
     <Content Include="packages.config" />
+    <None Include="Data\students.json" />
+    <Content Include="Log4net.config" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="ReportDemoWithEasyUI.aspx" />
     <Content Include="Scripts\easyloader.js" />
@@ -360,12 +377,23 @@
     <Content Include="Scripts\json1.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\LogManager.cs" />
+    <Compile Include="EasyUIGridEdit.aspx.cs">
+      <DependentUpon>EasyUIGridEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EasyUIGridEdit.aspx.designer.cs">
+      <DependentUpon>EasyUIGridEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExportGrid.aspx.cs">
       <DependentUpon>ExportGrid.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ExportGrid.aspx.designer.cs">
       <DependentUpon>ExportGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportDemoWithEasyUI.aspx.cs">
@@ -384,6 +412,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

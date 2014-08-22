@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="jsRegex.aspx.cs" Inherits="WebSample.jsRegex" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="jsRegex.aspx.cs" Inherits="WebFormSample.jsRegex" %>
 
 <!DOCTYPE html>
 

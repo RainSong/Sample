@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WebSample {
+namespace WebFormSample {
     
     
     public partial class jqGrid {
