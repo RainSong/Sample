@@ -8,6 +8,7 @@
     <title></title>
     <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui-1.3.6.js"></script>
+    <script type="text/javascript" src="Scripts/common.js"></script>
     <link rel="stylesheet" type="text/css" href="Content/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="Content/themes/default/datagrid.css" />
 </head>
@@ -33,16 +34,22 @@
             },
             { title: "年级", field: "grade", align: "center", sortable: "false", width: "100" },
             { title: "班级", field: "className", align: "center", sortable: "false", width: "100" },
+            { title: "生日", field: "brithday", align: "center", sortable: "false", width: "100" },
             {
-                title: "生日", field: "brithday", align: "center", sortable: "false", width: "100", formatter: function (value, rowData, index) {
-                    //if (value) {
-                    //    var date = new Date(Date.parse(value.replace(/-/g, "/")));
-                    //    return date.format("yyyy年MM月dd日");
-                    //}
-                    return value;
+                title: "年龄", field: "age", align: "center", sortable: "false", width: "50", formatter: function (value, rowData, index) {
+                    var age = "";
+                    var brith = rowData["brithday"];
+                    if (brith) {
+                        brith = Date.StrToDate(brith);
+                        var now = new Date();
+                        age = now.getYear() - brith.getYear();
+                        if (brith.getMonth() > now.getMonth()) {
+                            age--;
+                        }
+                    }
+                    return age;
                 }
             },
-            { title: "年龄", field: "age", align: "center", sortable: "false", width: "50" },
             { title: "备注", field: "remark", align: "center", sortable: "false", width: "130" }
         ];
         $("#grid").datagrid({

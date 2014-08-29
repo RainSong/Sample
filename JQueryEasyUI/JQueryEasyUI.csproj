@@ -344,6 +344,7 @@
     <Content Include="Log4net.config" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="ReportDemoWithEasyUI.aspx" />
+    <Content Include="Scripts\common.js" />
     <Content Include="Scripts\easyloader.js" />
     <Content Include="Scripts\exprot.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
