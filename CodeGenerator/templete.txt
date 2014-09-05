@@ -14,11 +14,73 @@
 
 namespace CodeGenerator
 {
-	public class @Model.Name
+	public partial class @Model.Name
 	{
+		#region Class Member Declarations
 		@foreach(var field in @Model.Fields)
 		{
-		@:public @field.DataType @field.Name { get;set; }
+		@:private @field.DataType _@field.Name;
 		}
+		#endregion
+
+		/// <summary>Initializes a new instance of the <see cref="@Model.Name"/> class.</summary>///
+		@{
+		var className = string.Format("public {0} : base()",Model.Name);
+		@:@className
+		}		{
+			_@Model.Key.Name = default(@Model.Key.DataType);
+			OnCreated();
+		}
+
+		/// <summary>Method called from the constructor</summary>
+		partial void OnCreated();
+
+		/// <summary>Returns a hash code for this instance.</summary>
+		/// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. </returns>
+		public override int GetHashCode()
+		{
+			int toReturn = base.GetHashCode();
+			@{
+			var str =string.Format("this._{0}.GetHashCode();",Model.Key.Name);
+			@:toReturn ^= @str
+			}			treturn toReturn;
+		}
+
+		/// <summary>Determines whether the specified object is equal to this instance.</summary>
+		/// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>
+		/// <returns><c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.</returns>
+		public override bool Equals(object obj)
+		{
+			if(obj == null) 
+			{
+				return false;
+			}
+			@Model.Name toCompareWith = obj as @Model.Name;
+			return toCompareWith == null ? false : ((this._@Model.Key.Name == toCompareWith._@Model.Key.Name));
+		}
+
+		#region Class Property Declarations
+		
+		@foreach(var field in @Model.Fields)
+		{
+		if(field.Name!=@Model.Key.Name)
+		{
+		@:/// <summary>Gets or sets the @field.Name field. </summary>
+		@:public virtual @field.DataType @field.Name
+		@:{
+		@:get {return _@field.Name;}
+		@:set {_@field.Name = value;}
+		@:}
+		}
+		else
+		{
+		@:/// <summary>Gets the @field.Name field. </summary>
+		@:public virtual @field.DataType @field.Name
+		@:{
+		@:get {return _@field.Name;}
+		@:}
+		}
+		}
+		#endregion
 	}
 }

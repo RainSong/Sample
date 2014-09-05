@@ -8,6 +8,7 @@ namespace CodeGenerator
 {
     public class EntityModel
     {
+        public EntityField Key { get; set; }
         public IEnumerable<string> Comments { get; set; }
         public IEnumerable<string> Refrences { get; set; }
         public IEnumerable<EntityField> Fields { get; set; }
