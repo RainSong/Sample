@@ -1,0 +1,24 @@
+﻿/*
+*code generate by razorengine
+*@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+@foreach(var comment in @Model.Comments)
+{
+@:*@comment
+}
+*/
+
+@foreach(var reference in @Model.Refrences)
+{
+@:using @reference;
+}
+
+namespace CodeGenerator
+{
+	public class @Model.Name
+	{
+		@foreach(var field in @Model.Fields)
+		{
+		@:public @field.DataType @field.Name { get;set; }
+		}
+	}
+}

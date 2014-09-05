@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simple.Common
 {
-    public class Class1
+    public class DBHelper
     {
     }
 }
