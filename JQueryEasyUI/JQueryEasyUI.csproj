@@ -335,6 +335,7 @@
     <Content Include="Content\themes\metro\tree.css" />
     <Content Include="Content\themes\metro\validatebox.css" />
     <Content Include="Content\themes\metro\window.css" />
+    <Content Include="ControlTest.aspx" />
     <Content Include="EasyUIGridEdit.aspx" />
     <Content Include="ExportGrid.aspx" />
     <Content Include="Global.asax" />
@@ -379,6 +380,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\LogManager.cs" />
+    <Compile Include="ControlTest.aspx.cs">
+      <DependentUpon>ControlTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTest.aspx.designer.cs">
+      <DependentUpon>ControlTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EasyUIGridEdit.aspx.cs">
       <DependentUpon>EasyUIGridEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
