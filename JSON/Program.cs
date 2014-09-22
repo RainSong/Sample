@@ -22,7 +22,7 @@ namespace JSON
         private static string ToJsongUseFastJson(object data)
         {
             var para = new JSONParameters();
-            para.EnableAnonymousTypes = true;//不输出$type
+            para.EnableAnonymousTypes = true;//不输出type
             para.UseUTCDateTime = false;//不转换为UTC时间            
             return fastJSON.JSON.Instance.ToJSON(data, para);
         }
