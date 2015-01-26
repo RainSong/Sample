@@ -59,7 +59,7 @@ namespace CodeGenerator
             }
             catch (Exception ex)
             {
-                Simple.Common.LogManager.LogError(ex);
+                
             }
             finally 
             {

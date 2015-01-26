@@ -62,12 +62,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simple.Common\Simple.Common.csproj">
-      <Project>{5f48a51c-e8f5-48e2-8bdd-625ef00d11b8}</Project>
-      <Name>Simple.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="templete.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
