@@ -1,7 +1,9 @@
 #coding:utf-8
 
-from sqlalchemy import *
-from models import *
+import os
+from sqlalchemy.orm.session import sessionmaker
+from sqlalchemy.engine import create_engine
+from models import Grade,Class,Student
 
 dbPath = "sqlite:///" + os.path.split(os.path.realpath(__file__))[0] + "\\Data\\db1.sqlite"
 
@@ -9,70 +11,70 @@ engine = create_engine(dbPath,echo=True)
 session = sessionmaker(bind=engine)
 
 def get_grade_count():
-    """»ñÈ¡Äê¼¶ÊıÁ¿"""
+    """è·å–å½“å‰æ•°æ®åº“ä¸­å¹´çº§æ•°é‡"""
     return session.query(Grade).count()
 
 def get_class_count():
-    """»ñÈ¡°à¼¶ÊıÁ¿"""
+    """è·å–å½“å‰æ•°æ®è£¤ä¸­ç­çº§çš„æ•°é‡"""
     return session.query(Class).count()
 
 def get_student_count():
-    """»ñÈ¡Ñ§ÉúµÄÊıÁ¿"""
+    """è·å–å½“å‰æ•°æ®åº“ä¸­å­¦ç”Ÿçš„æ•°é‡"""
     return session.query(Student).count()
 
 def exists_grade(name):
-    """ÅĞ¶ÏÄê¼¶ÊÇ·ñÒÑ¾­´æÔÚ±íÖĞÁË"""
+    """æ£€æŸ¥åç§°æ˜¯å¦å­˜åœ¨æŸä¸ªåç§°çš„å¹´çº§"""
     count = session.query(Grade).filter(name=name).count()
     return count > 0
 
 def exists_class(name,grade_id):
-    """ÅĞ¶ÏÄ³¸öÄê¼¶ÏÂÊÇ·ñÒÑ¾­´æÔÚÄ³¸ö°à¼¶ÁË"""
+    """æ£€æŸ¥æŸä¸ªå¹´çº§ä¸‹æ˜¯å¦å­˜åœ¨æŸä¸ªåç§°çš„ç­çº§"""
     count = session.query(Class).filter(name=name,grade_id=grade_id).count()
     return count > 0
 
 def add_gread(grade):
-    """Ìí¼ÓÒ»¸öÄê¼¶"""
+    """æ·»åŠ ä¸€ä¸ªå¹´çº§"""
     if grade == None:
         return False
     if grade.name == None or len(grade.name) == 0:
-        print("Äê¼¶Ãû³Æ²»ÄÜÎª¿Õ")
+        print("å¹´çº§åç§°ä¸å¯ä¸ºç©º")
         return False
     if exists_grade(grade.name):
-        print("Êı¾İ¿âÖĞÒÑ¾­´æÔÚÃû³ÆÎª{0}µÄÄê¼¶ÁË".format(grade.name))
+        print("å·²ç»å­˜åœ¨åç§°ä¸º{0}çš„å¹´çº§äº†".format(grade.name))
         return False
     if grade.start_year == None or grade.start_year == 0:
-        print("Äê¼¶ÈëÑ§Äê·İ²»ÄÜÎª¿Õ")
+        print("å…¥å­¦å¹´ä»½ä¸èƒ½ä¸ºç©º")
         return False
     session.add(grade)
 
 def add_class(cla):
-    """Ìí¼ÓÒ»¸ö°à¼¶"""
+    """æ·»åŠ ä¸€ä¸ªç­çº§"""
     if cla == None:
         return False
     if cla.grade_id == None or len(cla.grade_id) == 0:
-        print("Äê¼¶ID²»ÄÜÎª¿Õ")
+        print("å¹´çº§IDä¸èƒ½ä¸ºç©º")
         return False
     if cla.name == None or len(cla.name)==0:
-        print("Äê¼¶Ãû³Æ²»ÄÜÎª¿Õ")
+        print("ç­çº§åç§°ä¸èƒ½ä¸ºç©º")
         return False
     if exists_class(cla.name,cla.grade_id):
-        print("µ±Ç°Äê¼¶ÏÂÒÑ¾­ÓĞÃûÎª{0}µÄ°à¼¶ÁË".format(cla.name))
+        print("å½“å‰å¹´çº§ä¸‹å·²ç»å­˜åœ¨åç§°ä¸º{0}çš„ç­çº§äº†".format(cla.name))
         return False
     session.add(cla)
     return True
 
 def add_student(stu):
-    """Ìí¼ÓÒ»¸öÑ§Éú"""
+    """æ·»åŠ ä¸€ä¸ªå­¦ç”Ÿ"""
     if stu == None:
         return False
     if stu.grade_id == None or len(stu.grade_id) == 0:
-        print("Ñ§ÉúÄê¼¶ID²»ÄÜÎª¿Õ")
+        print("å¹´çº§IDä¸èƒ½ä¸ºç©º")
         return False
     if stu.class_id == None or len(stu.class_id) == 0:
-        print("Ñ§Éú°à¼¶ID²»ÄÜÎª¿Õ")
+        print("ç­çº§IDä¸èƒ½ä¸ºç©º")
         return False
     if stu.name == None or len(stu.name) == 0:
-        print("Ñ§ÉúĞÕÃû²»ÄÜÎª¿Õ")
+        print("å­¦ç”Ÿå§“åä¸èƒ½ä¸ºç©º")
         return False
     session.add(stu)
     return True

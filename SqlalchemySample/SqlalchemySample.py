@@ -1,10 +1,9 @@
 #coding:utf-8
-
 import dataHelper
 
 if __name__=="__main__":
-    grade_count = get_grade_count()
-    class_count = get_class_count()
-    student_count = get_student_count()
+    grade_count = dataHelper.get_grade_count()
+    class_count = dataHelper.get_class_count()
+    student_count = dataHelper.get_student_count()
 
-    print("Êı¾İ¿âÖĞÒÑ¾­ÓĞ£º{0}¸öÄê¼Í£¬{1}¸ö°à¼¶£¬{2}¸öÑ§Éú".format(grade_count,class_count,student_count))
+    print("å…±æœ‰å¹´çº§{0}ä¸ªï¼Œç­çº§{1}ä¸ªï¼Œå­¦ç”Ÿ{2}ä¸ª".format(grade_count,class_count,student_count))
