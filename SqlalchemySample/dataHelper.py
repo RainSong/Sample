@@ -7,8 +7,11 @@ from models import Grade,Class,Student
 
 dbPath = "sqlite:///" + os.path.split(os.path.realpath(__file__))[0] + "\\Data\\db1.sqlite"
 
-engine = create_engine(dbPath,echo=True)
-session = sessionmaker(bind=engine)
+print(dbPath)
+
+engine = create_engine(dbPath,echo=False)
+Session = sessionmaker(bind=engine)
+session = Session()
 
 def get_grade_count():
     """获取当前数据库中年级数量"""
@@ -24,12 +27,12 @@ def get_student_count():
 
 def exists_grade(name):
     """检查名称是否存在某个名称的年级"""
-    count = session.query(Grade).filter(name=name).count()
+    count = session.query(Grade).filter(Grade.name==name).count()
     return count > 0
 
 def exists_class(name,grade_id):
     """检查某个年级下是否存在某个名称的班级"""
-    count = session.query(Class).filter(name=name,grade_id=grade_id).count()
+    count = session.query(Class).filter(Class.name==name,Class.grade_id==grade_id).count()
     return count > 0
 
 def add_gread(grade):
@@ -46,6 +49,7 @@ def add_gread(grade):
         print("入学年份不能为空")
         return False
     session.add(grade)
+    session.commit()
 
 def add_class(cla):
     """添加一个班级"""
@@ -61,6 +65,7 @@ def add_class(cla):
         print("当前年级下已经存在名称为{0}的班级了".format(cla.name))
         return False
     session.add(cla)
+    session.commit()
     return True
 
 def add_student(stu):
@@ -77,5 +82,13 @@ def add_student(stu):
         print("学生姓名不能为空")
         return False
     session.add(stu)
+    session.commit()
     return True
-    
+
+def get_grade_by_name(grade_name):
+    """根据年级的名称查询一个年级"""
+    return session.query(Grade).filter(Grade.name==grade_name).first()
+
+def get_class_by_name(class_name):
+    """根据班级名称获取一个班级"""
+    return session.query(Class).filter(Class.name==class_name).first()
