@@ -27,8 +27,12 @@ namespace CodeGenerator
 		@{
 		var className = string.Format("public {0} : base()",Model.Name);
 		@:@className
-		}		{
-			_@Model.Key.Name = default(@Model.Key.DataType);
+		}
+		{
+			@if(@Model.Key!=null)
+			{
+				@:_@Model.Key.Name = default(@Model.Key.DataType);
+			}
 			OnCreated();
 		}
 

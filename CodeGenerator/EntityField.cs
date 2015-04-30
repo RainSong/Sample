@@ -8,6 +8,11 @@ namespace CodeGenerator
 {
     public class EntityField
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Description { get; set; }
+        public bool DbNullAbel { get; set; }
         public string Name { get; set; }
         public string DataType { get; set; }
     }

@@ -13,5 +13,7 @@ namespace CodeGenerator
         public IEnumerable<string> Refrences { get; set; }
         public IEnumerable<EntityField> Fields { get; set; }
         public string Name { get; set; }
+
+        public string NameSpace { get; set; }
     }
 }
