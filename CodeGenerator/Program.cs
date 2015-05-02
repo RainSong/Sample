@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Microsoft.SqlServer.Management.Smo;
 
 namespace CodeGenerator
 {
@@ -16,28 +17,28 @@ namespace CodeGenerator
 
             var dbName = "AdventureWorks2012";
             var dbInfo = new DataBasesInfo();
-            var tableNames = dbInfo.GetTables(dbName);
+            var tables = dbInfo.GetTables(dbName);
 
             var generator = new Generator();
             generator.Templete = templete;
             var code = string.Empty;
 
-            foreach (var tableName in tableNames) 
+            foreach (var table in tables) 
             {
                 var em = new EntityModel();
                 em.NameSpace = "DAL";
-                em.Name = tableName;
+                em.Name = table.Name;
                 em.Comments = new string[] { "author:YGJ" };
                 var fields = new List<EntityField>();
-                var columns = dbInfo.GetTableClomns(dbName, tableName);
+                //var columns = dbInfo.GetTableClomns(dbName, table);
                 
-                foreach (DataRow dr in columns.Rows) 
+                foreach (Column col in table.Columns) 
                 {
                     var ef = new EntityField();
-                    ef.Name = Convert.ToString(dr["Name"]);
-                    ef.DataType = Convert.ToString(dr["DataType"]);
-                    ef.DbNullAbel = Convert.ToBoolean(dr["AllowNull"]);
-                    ef.Description = Convert.ToString(dr["Des"]);
+                    ef.Name = col.Name;
+                    ef.DataType = col.DataType.ToString();
+                    ef.DbNullAbel = col.Nullable;
+                    ef.Description = col.ExtendedProperties.Contains("MS_Description") ? col.ExtendedProperties["MS_Description"].Value.ToString() : string.Empty;
                     fields.Add(ef);
                 }
                 em.Fields = fields;

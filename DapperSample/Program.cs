@@ -11,5 +11,6 @@ namespace DapperSample
         static void Main(string[] args)
         {
         }
+
     }
 }

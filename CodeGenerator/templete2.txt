@@ -1,0 +1,60 @@
+﻿/*
+*code generate by razorengine
+*@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+@if(@Model.Comments!=null)
+{
+foreach(var comment in @Model.Comments)
+{
+@:*@comment
+}
+}
+*/
+@if(@Model.Refrences!=null)
+{
+foreach(var reference in @Model.Refrences)
+{
+@:using @reference;
+}
+}
+@if(string.IsNullOrEmpty(@Model.Schema))
+{
+@:namespace @Model.NameSpace
+}
+else
+{
+@:namespace @Model.Schema@Model.NameSpace
+}
+{
+	public partial class @Model.Name
+	{
+		#region 定义字段
+		@foreach(var field in @Model.Fields) 
+		{
+		if(@field.DbNullAbel){
+		@:private @field.DataType? _@field.Name.Replace(" ","_");
+		}
+		else{
+		@:private @field.DataType _@field.Name.Replace(" ","_");
+		}
+		}
+		#endregion
+
+		#region定义属性
+		@foreach(var field in @Model.Fields) {
+		@:/// <summary>
+        @:/// @field.Description
+        @:/// </summary>
+		if(@field.DbNullAbel){
+		@:public @field.DataType? @field.Name
+		}
+		else{
+		@:public @field.DataType @field.Name
+		}
+		@:{
+			@:get { return _@field.Name.Replace(" ","_"); }
+			@:set { _@field.Name.Replace(" ","_") = value; }
+		@:}
+		}
+		#endregion
+	}
+}
