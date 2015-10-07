@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{00C794C0-F16D-4587-93FA-B0F834548A8E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFSample</RootNamespace>
+    <AssemblyName>EFSample</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\Address.cs" />
+    <Compile Include="DAL\AddressType.cs" />
+    <Compile Include="DAL\AWBuildVersion.cs" />
+    <Compile Include="DAL\BillOfMaterials.cs" />
+    <Compile Include="DAL\BusinessEntity.cs" />
+    <Compile Include="DAL\BusinessEntityAddress.cs" />
+    <Compile Include="DAL\BusinessEntityContact.cs" />
+    <Compile Include="DAL\ContactType.cs" />
+    <Compile Include="DAL\CountryRegion.cs" />
+    <Compile Include="DAL\CountryRegionCurrency.cs" />
+    <Compile Include="DAL\CreditCard.cs" />
+    <Compile Include="DAL\Culture.cs" />
+    <Compile Include="DAL\Currency.cs" />
+    <Compile Include="DAL\CurrencyRate.cs" />
+    <Compile Include="DAL\Customer.cs" />
+    <Compile Include="DAL\DatabaseLog.cs" />
+    <Compile Include="DAL\Department.cs" />
+    <Compile Include="DAL\EmailAddress.cs" />
+    <Compile Include="DAL\Employee.cs" />
+    <Compile Include="DAL\EmployeeDepartmentHistory.cs" />
+    <Compile Include="DAL\EmployeePayHistory.cs" />
+    <Compile Include="DAL\ErrorLog.cs" />
+    <Compile Include="DAL\Illustration.cs" />
+    <Compile Include="DAL\JobCandidate.cs" />
+    <Compile Include="DAL\Location.cs" />
+    <Compile Include="DAL\AdventrueContext.cs" />
+    <Compile Include="DAL\Password.cs" />
+    <Compile Include="DAL\Person.cs" />
+    <Compile Include="DAL\PersonCreditCard.cs" />
+    <Compile Include="DAL\PersonPhone.cs" />
+    <Compile Include="DAL\PhoneNumberType.cs" />
+    <Compile Include="DAL\Product.cs" />
+    <Compile Include="DAL\ProductCategory.cs" />
+    <Compile Include="DAL\ProductCostHistory.cs" />
+    <Compile Include="DAL\ProductDescription.cs" />
+    <Compile Include="DAL\ProductDocument.cs" />
+    <Compile Include="DAL\ProductInventory.cs" />
+    <Compile Include="DAL\ProductListPriceHistory.cs" />
+    <Compile Include="DAL\ProductModel.cs" />
+    <Compile Include="DAL\ProductModelIllustration.cs" />
+    <Compile Include="DAL\ProductModelProductDescriptionCulture.cs" />
+    <Compile Include="DAL\ProductPhoto.cs" />
+    <Compile Include="DAL\ProductProductPhoto.cs" />
+    <Compile Include="DAL\ProductReview.cs" />
+    <Compile Include="DAL\ProductSubcategory.cs" />
+    <Compile Include="DAL\ProductVendor.cs" />
+    <Compile Include="DAL\PurchaseOrderDetail.cs" />
+    <Compile Include="DAL\PurchaseOrderHeader.cs" />
+    <Compile Include="DAL\SalesOrderDetail.cs" />
+    <Compile Include="DAL\SalesOrderHeader.cs" />
+    <Compile Include="DAL\SalesOrderHeaderSalesReason.cs" />
+    <Compile Include="DAL\SalesPerson.cs" />
+    <Compile Include="DAL\SalesPersonQuotaHistory.cs" />
+    <Compile Include="DAL\SalesReason.cs" />
+    <Compile Include="DAL\SalesTaxRate.cs" />
+    <Compile Include="DAL\SalesTerritory.cs" />
+    <Compile Include="DAL\SalesTerritoryHistory.cs" />
+    <Compile Include="DAL\ScrapReason.cs" />
+    <Compile Include="DAL\Shift.cs" />
+    <Compile Include="DAL\ShipMethod.cs" />
+    <Compile Include="DAL\ShoppingCartItem.cs" />
+    <Compile Include="DAL\SpecialOffer.cs" />
+    <Compile Include="DAL\SpecialOfferProduct.cs" />
+    <Compile Include="DAL\StateProvince.cs" />
+    <Compile Include="DAL\Store.cs" />
+    <Compile Include="DAL\TransactionHistory.cs" />
+    <Compile Include="DAL\TransactionHistoryArchive.cs" />
+    <Compile Include="DAL\UnitMeasure.cs" />
+    <Compile Include="DAL\vAdditionalContactInfo.cs" />
+    <Compile Include="DAL\vEmployee.cs" />
+    <Compile Include="DAL\vEmployeeDepartment.cs" />
+    <Compile Include="DAL\vEmployeeDepartmentHistory.cs" />
+    <Compile Include="DAL\Vendor.cs" />
+    <Compile Include="DAL\vIndividualCustomer.cs" />
+    <Compile Include="DAL\vJobCandidate.cs" />
+    <Compile Include="DAL\vJobCandidateEducation.cs" />
+    <Compile Include="DAL\vJobCandidateEmployment.cs" />
+    <Compile Include="DAL\vPersonDemographics.cs" />
+    <Compile Include="DAL\vProductAndDescription.cs" />
+    <Compile Include="DAL\vProductModelCatalogDescription.cs" />
+    <Compile Include="DAL\vProductModelInstructions.cs" />
+    <Compile Include="DAL\vSalesPerson.cs" />
+    <Compile Include="DAL\vSalesPersonSalesByFiscalYears.cs" />
+    <Compile Include="DAL\vStateProvinceCountryRegion.cs" />
+    <Compile Include="DAL\vStoreWithAddresses.cs" />
+    <Compile Include="DAL\vStoreWithContacts.cs" />
+    <Compile Include="DAL\vStoreWithDemographics.cs" />
+    <Compile Include="DAL\vVendorWithAddresses.cs" />
+    <Compile Include="DAL\vVendorWithContacts.cs" />
+    <Compile Include="DAL\WorkOrder.cs" />
+    <Compile Include="DAL\WorkOrderRouting.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
