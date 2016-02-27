@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.labPath = new System.Windows.Forms.Label();
-            this.txtPath = new System.Windows.Forms.TextBox();
-            this.btnBrowser = new System.Windows.Forms.Button();
+            this.btnGetFile = new System.Windows.Forms.Button();
             this.btnGenMD5 = new System.Windows.Forms.Button();
+            this.btnBrowser = new System.Windows.Forms.Button();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.labPath = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMD5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnGetFile = new System.Windows.Forms.Button();
+            this.colFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMD5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,21 +59,25 @@
             this.panelTop.Size = new System.Drawing.Size(762, 44);
             this.panelTop.TabIndex = 0;
             // 
-            // labPath
+            // btnGetFile
             // 
-            this.labPath.AutoSize = true;
-            this.labPath.Location = new System.Drawing.Point(13, 14);
-            this.labPath.Name = "labPath";
-            this.labPath.Size = new System.Drawing.Size(41, 12);
-            this.labPath.TabIndex = 0;
-            this.labPath.Text = "路径：";
+            this.btnGetFile.Location = new System.Drawing.Point(572, 9);
+            this.btnGetFile.Name = "btnGetFile";
+            this.btnGetFile.Size = new System.Drawing.Size(75, 23);
+            this.btnGetFile.TabIndex = 4;
+            this.btnGetFile.Text = "获取文件";
+            this.btnGetFile.UseVisualStyleBackColor = true;
+            this.btnGetFile.Click += new System.EventHandler(this.btnGetFile_Click);
             // 
-            // txtPath
+            // btnGenMD5
             // 
-            this.txtPath.Location = new System.Drawing.Point(60, 11);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(407, 21);
-            this.txtPath.TabIndex = 1;
+            this.btnGenMD5.Location = new System.Drawing.Point(655, 9);
+            this.btnGenMD5.Name = "btnGenMD5";
+            this.btnGenMD5.Size = new System.Drawing.Size(75, 23);
+            this.btnGenMD5.TabIndex = 3;
+            this.btnGenMD5.Text = "生成MD5";
+            this.btnGenMD5.UseVisualStyleBackColor = true;
+            this.btnGenMD5.Click += new System.EventHandler(this.btnGenMD5_Click);
             // 
             // btnBrowser
             // 
@@ -84,15 +89,21 @@
             this.btnBrowser.UseVisualStyleBackColor = true;
             this.btnBrowser.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
-            // btnGenMD5
+            // txtPath
             // 
-            this.btnGenMD5.Location = new System.Drawing.Point(655, 9);
-            this.btnGenMD5.Name = "btnGenMD5";
-            this.btnGenMD5.Size = new System.Drawing.Size(75, 23);
-            this.btnGenMD5.TabIndex = 3;
-            this.btnGenMD5.Text = "生成MD5";
-            this.btnGenMD5.UseVisualStyleBackColor = true;
-            this.btnGenMD5.Click += new System.EventHandler(this.btnGenMD5_Click);
+            this.txtPath.Location = new System.Drawing.Point(60, 11);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(407, 21);
+            this.txtPath.TabIndex = 1;
+            // 
+            // labPath
+            // 
+            this.labPath.AutoSize = true;
+            this.labPath.Location = new System.Drawing.Point(13, 14);
+            this.labPath.Name = "labPath";
+            this.labPath.Size = new System.Drawing.Size(41, 12);
+            this.labPath.TabIndex = 0;
+            this.labPath.Text = "路径：";
             // 
             // statusStrip1
             // 
@@ -116,6 +127,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colFileName,
+            this.colSize,
             this.colMD5});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 44);
@@ -131,21 +143,16 @@
             this.colFileName.Name = "colFileName";
             this.colFileName.Width = 380;
             // 
+            // colSize
+            // 
+            this.colSize.HeaderText = "大小";
+            this.colSize.Name = "colSize";
+            // 
             // colMD5
             // 
             this.colMD5.HeaderText = "MD5";
             this.colMD5.Name = "colMD5";
             this.colMD5.Width = 260;
-            // 
-            // btnGetFile
-            // 
-            this.btnGetFile.Location = new System.Drawing.Point(572, 9);
-            this.btnGetFile.Name = "btnGetFile";
-            this.btnGetFile.Size = new System.Drawing.Size(75, 23);
-            this.btnGetFile.TabIndex = 4;
-            this.btnGetFile.Text = "获取文件";
-            this.btnGetFile.UseVisualStyleBackColor = true;
-            this.btnGetFile.Click += new System.EventHandler(this.btnGetFile_Click);
             // 
             // Form1
             // 
@@ -180,10 +187,11 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMD5;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnGetFile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMD5;
     }
 }
 

@@ -12,6 +12,9 @@ namespace UPUIInChildThread
 {
     public partial class Form1 : Form
     {
+        private const int KBSize = 1024;
+        private const int MBSize = 1024 * KBSize;
+        private const int GBSize = 1024 * MBSize;
         private List<string> listFiles = new List<string>();
         public Form1()
         {
@@ -45,10 +48,37 @@ namespace UPUIInChildThread
         {
             BeginInvoke(new Action(() =>
             {
+                this.dataGridView1.Rows.Clear();
                 listFiles.ForEach(fileName =>
                 {
                     int index = this.dataGridView1.Rows.Add();
                     this.dataGridView1.Rows[index].Cells["colFileName"].Value = fileName;
+                    try
+                    {
+                        FileInfo fi = new FileInfo(fileName);
+                        var size = fi.Length;
+                        string fileSize;
+                        if (size < KBSize)
+                        {
+                            fileSize = size + "B";
+                        }
+                        else if (size >= KBSize && size < MBSize)
+                        {
+                            fileSize = size / KBSize + "K";
+                        }
+                        else if (size >= MBSize && size < GBSize)
+                        {
+                            fileSize = size / MBSize + "M";
+                        }
+                        else
+                        {
+                            fileSize = size / GBSize + "G";
+                        }
+                        this.dataGridView1.Rows[index].Cells["colSize"].Value = fileSize;
+                    }
+                    catch
+                    {
+                    }
                 });
             }));
         }
@@ -102,6 +132,7 @@ namespace UPUIInChildThread
         private void btnGetFile_Click(object sender, EventArgs e)
         {
             string dir;
+            this.listFiles.Clear();
             if (CheckDir(out dir))
             {
                 Task task = new Task((obj) =>
@@ -109,7 +140,7 @@ namespace UPUIInChildThread
                     string[] arr = obj as string[];
                     if (arr == null || arr.Length == 0) return;
                     GetFiles(arr[0]);
-                }, new[] {dir});
+                }, new[] { dir });
 
                 task.ContinueWith(t =>
                 {
