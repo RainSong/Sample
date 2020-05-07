@@ -55,7 +55,7 @@ namespace Expression
 
         private static double Compute(List<string> cons)
         {
-
+            return 0D;
         }
 
         private static double Operator(double num1, double num2, string oper)

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF159053-0466-47F9-9AAA-47366C2257B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LabelPrinter</RootNamespace>
+    <AssemblyName>LabelPrinter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSScriptLibrary, Version=3.24.2.0, Culture=neutral, PublicKeyToken=70fcc3d18c749033, processorArchitecture=MSIL">
+      <HintPath>..\packages\CS-Script.bin.3.24.2.0\lib\net40\CSScriptLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.1.50.0\lib\net40\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\CS-Script.bin.3.24.2.0\lib\net40\Mono.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net40\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net40\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Logger.cs" />
+    <Compile Include="Common\SqlHelper.cs" />
+    <Compile Include="Common\WinformUtil.cs" />
+    <Compile Include="Domain\DataHelper.cs" />
+    <Compile Include="Domain\Models\Car.cs" />
+    <Compile Include="Domain\Models\CarItem.cs" />
+    <Compile Include="Domain\Models\Enums.cs" />
+    <Compile Include="Domain\Models\LabelStyleCarItem.cs" />
+    <Compile Include="Domain\Models\LabelStyle.cs" />
+    <Compile Include="Domain\Models\LabelStyleItem.cs" />
+    <Compile Include="Domain\Models\Script.cs" />
+    <Compile Include="Domain\Models\LabelStyleItemProperty.cs" />
+    <Compile Include="Domain\LtpPrinterBuilder.cs" />
+    <Compile Include="LabelStyleAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelStyleAddEditForm.Designer.cs">
+      <DependentUpon>LabelStyleAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelStyleCarItemAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelStyleCarItemAddEditForm.Designer.cs">
+      <DependentUpon>LabelStyleCarItemAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelStyleItemAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelStyleItemAddEditForm.Designer.cs">
+      <DependentUpon>LabelStyleItemAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelStyleItemPropertyAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LabelStyleItemPropertyAddEditForm.Designer.cs">
+      <DependentUpon>LabelStyleItemPropertyAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageForm.Designer.cs">
+      <DependentUpon>ManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScriptSelectForm.Designer.cs">
+      <DependentUpon>ScriptSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printers\PrintContents\IPrintContent.cs" />
+    <Compile Include="Printers\PrinterBase.cs" />
+    <Compile Include="Printers\LtpPrinter.cs" />
+    <Compile Include="Printers\PrintContents\LtpPrintContents\LtpPrintContentBase.cs" />
+    <Compile Include="Printers\PrintContents\LtpPrintContents\LtpPrintImageContent.cs" />
+    <Compile Include="Printers\PrintContents\LtpPrintContents\LtpPrintLineContent.cs" />
+    <Compile Include="Printers\PrintContents\LtpPrintContents\LtpPrintStringContent.cs" />
+    <Compile Include="Printers\PrintContentType.cs" />
+    <Compile Include="Printers\PrinterType.cs" />
+    <Compile Include="Printers\CircuitLabelPrinters\CircuitLabelPrinterLTP.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripting.evaluator.cs" />
+    <Compile Include="Scripting.native.cs" />
+    <EmbeddedResource Include="LabelStyleAddEditForm.resx">
+      <DependentUpon>LabelStyleAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelStyleCarItemAddEditForm.resx">
+      <DependentUpon>LabelStyleCarItemAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelStyleItemAddEditForm.resx">
+      <DependentUpon>LabelStyleItemAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelStyleItemPropertyAddEditForm.resx">
+      <DependentUpon>LabelStyleItemPropertyAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageForm.resx">
+      <DependentUpon>ManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScriptSelectForm.resx">
+      <DependentUpon>ScriptSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
